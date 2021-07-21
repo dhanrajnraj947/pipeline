@@ -31,7 +31,7 @@ pipeline {
 	}	
 	
 			post {
-			always {
+			failure {
 			 echo "You can always see me."
 			}
 			
