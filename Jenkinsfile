@@ -26,5 +26,12 @@ pipeline {
 				sh 'sleep 5'
 			}		
 		}
+		post {
+			always {
+			 echo "You can always see me."
+			}
+			
+			
+		}
 	}	
 }
