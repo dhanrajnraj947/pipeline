@@ -1,12 +1,27 @@
 pipeline {
 	agent any
+	parameters {
+		string(name: 'TARGET_ENV', decription: 'Target environment to deploy')
+	}	
+	environment {
+		DEPLOY_TO = "${TARGET_ENV}"
+	}	
 	stages {
-		stage('build') {
+		stage('DEPLOY_TEST') {
 			when {
-				branch 'main'
+				environment name: 'DEPLOY_TO', value: 'test'
 			}	
 			steps {
-				echo "BUILD IS RUNNING ......."
+				echo "DEPLOY TO TEST ENVIRONMENT ......."
+				sh 'sleep 5'
+			}		
+		}
+		stage('DEPLOY_PROD') {
+			when {
+				environment name: 'DEPLOY_TO', value: 'prod'
+			}	
+			steps {
+				echo "DEPLOY TO PRODUCTION ......."
 				sh 'sleep 5'
 			}		
 		}
