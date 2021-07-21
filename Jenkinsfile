@@ -2,6 +2,7 @@ pipeline {
 	agent none
 	stages {
 		stage('BUILD') {
+			agent any
 			steps {
 				sh '''
 					pwd
@@ -38,6 +39,7 @@ pipeline {
 					
 				}
 				stage('TEST4') {
+					agent any
 					steps {
 						sh 'sleep 5'
 						echo "TESTING PHASE4"
@@ -49,6 +51,7 @@ pipeline {
 		}
 		
 		stage('DEPLOY') {
+			agent any
 			steps {
 				sh '''
 					pwd
