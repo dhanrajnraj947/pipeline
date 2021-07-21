@@ -24,6 +24,7 @@ pipeline {
 				echo ""
 				echo "DEPLOY TO PRODUCTION ......."
 				sh 'sleep 5'
+				sh 'exit 1'
 			}		
 		}
 
