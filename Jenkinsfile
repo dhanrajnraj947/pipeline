@@ -1,5 +1,5 @@
 pipeline {
-	agent any  
+	agent none
 	stages {
 		stage('BUILD') {
 			steps {
@@ -14,6 +14,7 @@ pipeline {
 		stage('TEST') {
 			parallel { 
 				stage('TEST1') {
+					agent { label 'docker-agent' }
 					steps {
 						sh 'sleep 5'	
 						echo "TESTING PHASE1"
@@ -21,6 +22,7 @@ pipeline {
 					
 				}
 				stage('TEST2') {
+					agent { label 'agent1' }
 					steps {
 						sh 'sleep 5'	
 						echo "TESTING PHASE2"
@@ -28,6 +30,7 @@ pipeline {
 					
 				}
 				stage('TEST3') {
+					agent { label 'master' }
 					steps {
 						sh 'sleep 5'	
 						echo "TESTING PHASE3"
