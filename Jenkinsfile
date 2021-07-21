@@ -21,7 +21,7 @@ pipeline {
 				environment name: 'DEPLOY_TO', value: 'prod'
 			}	
 			steps {
-				echo 
+				echo ""
 				echo "DEPLOY TO PRODUCTION ......."
 				sh 'sleep 5'
 			}		
