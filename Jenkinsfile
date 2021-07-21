@@ -6,10 +6,9 @@ pipeline {
 				branch 'master'
 			}	
 			steps {
-					echo "BUILD IS RUNNING ......."
-					sh 'sleep 5'
-				}	
-			}	
+				echo "BUILD IS RUNNING ......."
+				sh 'sleep 5'
+			}		
 		}
 	}	
 }
